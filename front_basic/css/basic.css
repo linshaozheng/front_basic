@@ -1,0 +1,15 @@
+.text-style{
+    /*全部小写*/
+    text-transform: lowercase;
+    text-decoration: underline;
+    letter-spacing: 10px;
+    word-spacing: 5px;
+    /*– left:左对齐
+      – right:右对齐
+      – justify:两边对齐
+      – center:居中对齐*/
+    text-align: center;
+
+    text-indent: 2px;
+
+}
