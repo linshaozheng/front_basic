@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型</title>
+</head>
+<body>
+    <!--– 内容区(content)
+    – 内边距(padding)
+    – 边框(border)
+    – 外边距(margin)-->
+    <div class="box-style">
+        <p >当元素开启定位以后就可以设置z-index这 个属性。
+            • 这个属性可以提升定位元素所在的层级。
+            • z-index可以指定一个整数作为参数，值越 大元素显示的优先级越高，也就是z-index 值较大的元素会显示在网页的最上层。</p>
+    </div>
+
+
+</body>
+<style>
+    .box-style{
+        /*content: revert;*/
+        /*padding: 10px;*/
+        /*边框的 宽度 颜色 样式*/
+        border: 1px red solid;
+        margin:  2px 2px;
+        /*– block:设置元素为块元素
+            – inline:设置元素为行内元素
+            – inline-block:设置元素为行内块元素
+            – none:隐藏元素(元素将在页面中完全消失)*/
+        /*display: block;*/
+        visibility: visible;
+        /*当标签里面的内容超出了样式的宽度和高度是 使其滚动 scroll*/
+        /*overflow: scroll;*/
+        /*background-color: green;*/
+        background-image: url("../css/lake.png");
+        background-repeat: repeat-x;
+        background-attachment: scroll;
+
+    }
+</style>
+</html>
