@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom 选择 练习</title>
+    <script type="text/javascript">
+        function forClick(str,fun){
+            document.getElementById(str).onclick = fun;
+        }
+        window.onload = function () {
+            var items = document.getElementsByName("items");
+            //1. 全选
+            forClick("checkedAllBtn",function () {
+                for (let item of items) {
+                    if (!item.checked){
+                        item.checked = true
+                    }
+                }
+                console.log(items)
+
+            })
+            //2. 全不选
+            forClick("checkedNoBtn",function () {
+                for (let item of items) {
+                    if (item.checked){
+                        item.checked = false
+                    }
+                }
+                console.log(items)
+
+            })
+            //3. 反选
+            forClick("checkedRevBtn",function () {
+                for (let item of items) {
+                    item.checked = !item.checked;
+                }
+                console.log(items)
+
+            })
+
+            //4. 提交
+            forClick("sendBtn",function () {
+                for (let item of items) {
+                    if (item.checked){
+                        alert(item.value)
+                        console.log(item.value);
+                    }
+                }
+            })
+
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p>你喜欢的篮球运动员？</p>
+        <form method="post" action="">
+        <input type="checkbox" id="checkAllOrNot">全选/全不选
+        <br>
+        <br>
+        <input type="checkbox" name="items" value="足球" />足球
+        <input type="checkbox" name="items" value="篮球" />篮球
+        <input type="checkbox" name="items" value="羽毛球" />羽毛球
+        <input type="checkbox" name="items" value="乒乓球" />乒乓球
+        <br/>
+        <input type="button" style="margin: 5px" id="checkedAllBtn" value="全　选" />
+        <input type="button" style="margin: 5px" id="checkedNoBtn" value="全不选" />
+        <input type="button" style="margin: 5px" id="checkedRevBtn" value="反　选" />
+        <input type="button" style="margin: 5px" id="sendBtn" value="提　交" />
+
+        </form>
+    </div>
+
+<script type="text/javascript" src="domPractice3.js"/>
+
+</body>
+</html>

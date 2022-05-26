@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom 操作文件的上下张操作</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var imgArr=["1.jpeg","2.jpeg","3.jpeg","4.jpeg"];
+            var index = 0;
+            document.getElementById("pre").onclick = function () {
+                if (index <=0){
+                    index = imgArr.length ;
+                }
+                var element = document.getElementsByTagName("img")[0];
+                console.log(element);
+                element.src = "../img/"+imgArr[--index];
+                console.log(element.src);
+                document.getElementById("total").innerHTML = "这是第"+(index+1)+"张，共"+imgArr.length+"张"
+
+
+            }
+
+            document.getElementById("next").onclick = function () {
+                if (index >= imgArr.length-1)
+                    index = -1;
+                var element = document.getElementsByTagName("img")[0];
+                console.log(element);
+                element.src = "../img/"+imgArr[++index];
+                console.log(index,imgArr.length);
+                document.getElementById("total").innerHTML = "这是第"+(index+1)+"张，共"+imgArr.length+"张"
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <div class="outer">
+        <p id="total" class="p-line">这是第1张，共4张</p>
+        <img class="img-style" src="../img/1.jpeg"/>
+
+        <br>
+        <button id="pre">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+</body>
+<style>
+    .outer{
+        width: 1000px;
+        margin: 10px;
+        text-align: center;
+        margin: 50px auto;
+        background-color: azure;
+
+    }
+    .img-style{
+        /**
+        固定图片的不随着图片的大小而变大变小
+         */
+        object-fit: cover;
+        width: 500px;
+        height: 300px;
+    }
+</style>
+</html>

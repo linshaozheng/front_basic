@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom Test</title>
+
+    <!--
+    注意：如果我强行想让<script/>写在<head/>里面可不可以呢，当然可以
+        -->
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("btn4").ondblclick =function () {
+                alert("我依旧是一个双击事件");
+            }
+        }
+    </script>
+</head>
+<body>
+ <div>
+     <button id="btn">我只是一个按钮</button>
+     <button id="btn2" onclick="alert('长得帅，容易被注意！')" >我是一个单击事件</button>
+     <button id="btn3" >我是一个双击事件</button>
+     <button id="btn4" >我是一个双击事件</button>
+ </div>
+
+
+     <script type="text/javascript">
+         <!-- 很奇怪 在外部导入js时，会多一个 --》的尾巴  -->
+         document.getElementById("btn").innerHTML = "I am big button";
+
+         document.getElementById("btn3").ondblclick =function () {
+             alert("我是一个双击事件");
+         }
+     </script>
+
+</body>
+</html>
