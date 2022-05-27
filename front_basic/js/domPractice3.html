@@ -9,12 +9,15 @@
         }
         window.onload = function () {
             var items = document.getElementsByName("items");
+            var checkedAllOrNot = document.getElementById("checkAllOrNot");
+
             //1. 全选
             forClick("checkedAllBtn",function () {
                 for (let item of items) {
                     if (!item.checked){
                         item.checked = true
                     }
+                    checkedAllOrNot.checked = true;
                 }
                 console.log(items)
 
@@ -26,13 +29,18 @@
                         item.checked = false
                     }
                 }
+                checkedAllOrNot.checked = false;
                 console.log(items)
 
             })
             //3. 反选
             forClick("checkedRevBtn",function () {
+                checkedAllOrNot.checked = true;
                 for (let item of items) {
                     item.checked = !item.checked;
+                    if (!item.checked){
+                        checkedAllOrNot.checked = false;
+                    }
                 }
                 console.log(items)
 
@@ -48,6 +56,32 @@
                 }
             })
 
+            //5. 全选/全不选
+            forClick("checkAllOrNot",function () {
+                if (checkedAllOrNot.checked){
+                    for (let item of items) {
+                        item.checked = true;
+                    }
+                }else {
+                    for (let item of items) {
+                        item.checked = false;
+                    }
+                }
+            })
+
+            //6.监听当单选框没有全选中时，checkedAllOrNot应该置为false,同理监听当单选框全选中时，checkedAllOrNot应该置为true
+            for (let i = 0; i < items.length; i++) {
+                items[i].onclick = function (){
+                    checkedAllOrNot.checked = true;
+                    for (let j = 0; j < items.length; j++) {
+                        if (!items[i].checked){
+                            checkedAllOrNot.checked = false;
+                            break;
+                        }
+                    }
+
+                }
+            }
 
         }
     </script>
